@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">NYC Department of Education</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="favorite_title">FAVORITE</string>
+    <string name="overview">SCHOOL OVERVIEW</string>
+    <string name="admission">PROGRAM ADMISSION</string>
+    <string name="eligibility">ELIGIBILITY</string>
+    <string name="performance">PERFORMANCE</string>
+    <string name="activities">ACTIVITIES</string>
+    <string name="academics">ACADEMIC</string>
+    <string name="school_location">SCHOOL LOCATION</string>
+    <string name="GOOGLE_MAPS_API_KEY">AIzaSyCHjgCWMm68z41sLS-Gpd4p6ewelRVOozg</string>
+</resources>
