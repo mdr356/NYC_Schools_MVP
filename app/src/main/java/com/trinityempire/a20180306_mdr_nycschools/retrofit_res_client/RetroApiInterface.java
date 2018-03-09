@@ -26,4 +26,10 @@ public interface RetroApiInterface {
     Call<List<SchoolSATscore>> getSchoolsSATscore(
                                     @Query("$$app_token") String apiKey,
                                     @Query("dbn") String dbn);
+
+    @GET("/resource/97mf-9njv.json/")
+    Call<List<Schools>> getSearchSchool(@Query("$$app_token") String apiKey,
+                                        @Query("borough") String borough,
+                                        @Query("$limit") int limit,
+                                        @Query("$offset") int offset);;
 }

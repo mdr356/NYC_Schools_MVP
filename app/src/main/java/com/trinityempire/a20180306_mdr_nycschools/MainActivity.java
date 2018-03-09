@@ -6,16 +6,16 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.trinityempire.a20180306_mdr_nycschools.view_favorite.FavoriteActivity;
-import com.trinityempire.a20180306_mdr_nycschools.view_main.FragSchools;
+import com.trinityempire.a20180306_mdr_nycschools.view_main.FragmentSchools;
+import com.trinityempire.a20180306_mdr_nycschools.view_search.FragmentSearch;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends MainBaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -35,16 +35,25 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.placeholder, new FragSchools());
+        ft.replace(R.id.placeholder, new FragmentSchools());
         ft.commit();
 
+        setupSearchBar();
     }
 
     @Override
     public void onBackPressed() {
+        FragmentSearch myFragment = (FragmentSearch)getSupportFragmentManager().findFragmentByTag("FragmentSearch");
+
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (myFragment != null && myFragment.isVisible()) {
+            android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.placeholder, new FragmentSchools(), "FragmentSchools");
+            ft.commit();
         } else {
             super.onBackPressed();
         }
